@@ -7,6 +7,7 @@ from src.data.loader import load_market_data
 from src.data.validator import validate_market_data
 from src.data.cleaner import clean_market_data
 
+from src.features.engineering import create_market_features
 
 # ============================================================
 # PAGE CONFIGURATION
@@ -163,21 +164,7 @@ data = clean_market_data(data)
 # FEATURE ENGINEERING
 # ============================================================
 
-# Daily simple return
-data["Return"] = data["Close"].pct_change()
-
-# Daily log return
-data["Log_Return"] = np.log(
-    data["Close"] / data["Close"].shift(1)
-)
-
-# 20-day annualized rolling volatility
-data["Volatility_20D"] = (
-    data["Log_Return"]
-    .rolling(20)
-    .std()
-    * np.sqrt(252)
-)
+data = create_market_features(data)
 
 # Remove the first row created by pct_change()
 data = data.dropna(
