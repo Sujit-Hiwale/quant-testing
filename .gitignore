@@ -1,2 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
 venv/
-**/__pycache__/
+env/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Streamlit secrets
+.streamlit/secrets.toml
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*
+
+# Logs
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local datasets and generated data
+data/
+datasets/
+*.csv
+*.parquet
+*.feather
+
+# Research outputs
+results/
+outputs/
+reports/
+
+# Temporary files
+*.tmp
+*.bak
